@@ -1,0 +1,10 @@
+.gcloudignore
+.git
+.gitignore
+__pycache__/
+/setup.cfg
+.vscode
+.idea
+db.sqlite3
+venv
+cloud_sql_proxy_x64.exe

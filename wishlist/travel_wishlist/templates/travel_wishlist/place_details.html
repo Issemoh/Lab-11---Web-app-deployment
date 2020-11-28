@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place details</title>
+</head>
+<body>
+    {% extends "travel_wishlist/base.html" %}
+    {% load static %}
+    {% block content %}
+        <h2>{{ place.name }}</h2>
+        {% if place.visited %}
+            <p>You have visited {{ place.name }}</p>
+            <h3>Notes</h3>
+            <p>{{ place.notes|default:"No Notes :("}}</p>
+            <h3>Date visited</h3>
+            <p>{{ place.date_visited|default:"Date visited not set :("}}</p>
+            <h3>Photo</h3>
+            {% if place.photo %}
+                <img src="{{ place.photo.url }}">
+            {% else %}
+                <p>No photo uploaded.</p>
+            {% endif %}
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+	<form method="post" action="{% url 'place_details' place.pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            <button type="submit">Save review</button>
+        </form>
+
+        {% else %}
+            <p>You have not visited {{ place.name }}</p>
+        <form method="post" action="{% url 'place_was_visited' place.pk %}">
+            {% csrf_token %}
+            <button type="submit">Visited!</button>
+        </form>
+        {% endif %}
+        <form method="post" action="{% url 'delete_place' place.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="delete">Delete</button>
+        </form>
+    <script src="{% static 'js/confirm_delete.js' %}"></script>
+    {% endblock %}
+</body>
+</html>

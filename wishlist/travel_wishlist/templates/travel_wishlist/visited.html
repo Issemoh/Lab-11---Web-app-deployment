@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visited</title>
+</head>
+<body>
+{% extends 'travel_wishlist/base.html' %}
+{% block content %}
+    <h1>Places you have visited</h1>
+
+
+{% if visited %}
+    <ul>
+    {% for place in visited %}
+    <div style="text-align: center;">
+        <li><a href="{% url 'place_details' place_pk=place.pk %}">{{place.name}}</a></li>
+    </div>
+    {% endfor %}
+    </ul>
+
+{% else %}
+<p>You have not visited any places yet.</p>
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

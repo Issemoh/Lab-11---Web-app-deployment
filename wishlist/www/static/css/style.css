@@ -1,0 +1,42 @@
+span.place-name{
+    display: inline-block;
+    width: 70%;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to right, transparent 0%, blueviolet);
+    border-image-slice: 1;
+}
+form.visited-form{
+    display: inline;
+}
+div.wishlist-place{
+    margin: 20px;
+}
+label{
+    display: inline-block;
+    padding-right: 10px;
+}
+a.nav-link{
+    padding-right: 10px;
+}
+#add-new-place{
+    background-color: green;
+    border: darkgreen;
+}
+li{
+    margin: 5px;
+    height: 30px;
+    width: 50%;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to right, transparent 0%, darkcyan);
+    border-image-slice: 1;
+}
+.delete{
+    background-color: crimson;
+    border-color: darkred;
+}
+#site-header{
+    background: url("../img/matteo-raw-5EjPuEdaZLE-unsplash.jpg") 0 0 repeat-x;
+    color: white;
+    padding: 40px 0 40px 0;
+    text-align: center;
+}
